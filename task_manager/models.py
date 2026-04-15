@@ -20,6 +20,8 @@ class Position(models.Model):
 class Worker(AbstractUser):
     position = models.ForeignKey(Position, on_delete=models.PROTECT, null=True)
 
+    def __str__(self):
+        return f"{self.username}({self.position})"
 
 class Task(models.Model):
     class Priority(models.TextChoices):
