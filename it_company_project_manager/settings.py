@@ -125,4 +125,6 @@ STATIC_URL = "static/"
 
 STATIC_ROOT = BASE_DIR / "static"
 
+LOGIN_REDIRECT_URL = "/"
+
 AUTH_USER_MODEL = "task_manager.Worker"
