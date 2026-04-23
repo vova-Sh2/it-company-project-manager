@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Workers</h1>
+  <h1 class="major">Workers <a class="button" href="{% url 'task_manager:worker-create' %}">➕add worker</a></h1>
   <ul class="alt">
     {% for work in worker_list%}
-      <li>
-        {{ work }}
-      </li>
+      <li class="border m-4">
+        <a href="">
+          <div class="text-center p-3">
+            <h2 class="major m-auto">Name: {{ work.username }}</h2>
+            <h2 class="major m-auto">Position: {{ work.position }}</h2>
+          </div>
+        </a>
 
+      </li>
     {% endfor %}
   </ul>
 {% endblock %}

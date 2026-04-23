@@ -3,7 +3,7 @@
 {% block content %}
 
   <h1 class="major">Create task</h1>
-  <form method="post" action="">
+  <form method="post" action="" novalidate>
     {% csrf_token %}
     <div class="row">
       <div class="col-md-6 mb-3">
@@ -23,8 +23,13 @@
       </div>
       <div class="col-md-6 mb-3">
         <label for="id_task_type" class="form-label">Task type</label>
-        {{ form.task_type }}
+        <div class="d-flex align-items-center">
+          {{ form.task_type }}
+          <a href="{% url 'task_manager:task-type-create' %}?next={{ request.path }}" class="button ms-2">➕</a>
+        </div>
       </div>
+
+
     </div>
 
     <div class="mb-3">
@@ -32,7 +37,7 @@
       {{ form.description }}
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 border p-3">
       <label class="form-label">Assignees</label>
       <div class="row">
         {% for checkbox in form.assignees %}
@@ -47,7 +52,10 @@
         {% endfor %}
       </div>
     </div>
-    <input type="submit" value="Submit">
+    <div class="d-flex">
+      <input class="primary me-4" type="submit" value="Submit">
+      <a class="button" href="{% url 'task_manager:task-list' %}">Cancel</a>
+    </div>
   </form>
 
 {% endblock %}
