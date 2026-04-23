@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Task manager home</h1>
-  <p>Welcome to the IT Companies Task Manager</p>
-  <h2>Dynamic content</h2>
-  <ul>
-    <li>uncompleted tasks: {{ num_uncompleted_tasks }}</li>
-    <li>completed tasks: {{ num_completed_tasks }}</li>
-  </ul>
+
+  <div id="header">
+    <div class="logo">
+      <span class="icon fa-gem fa-spin"></span>
+    </div>
+    <div class="content">
+      <div class="inner">
+        <h1>IT Task Manager</h1>
+        <p>A platform for collaborative work among developers.<br>
+          Here, developers can create tasks, assign them to other team members, and track progress in one place.
+        </p>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}

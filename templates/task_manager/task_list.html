@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Task List({{ user.position }})</h1>
-  <ul>
+
+  <h1 class="major">Task List({{ user.position }})</h1>
+  <ul class="list-unstyled">
     {% for task in task_list %}
-      <li>
-        {{ task.name }}
+      <li class="border m-4">
+        <a href="#">
+          <div class="">
+            <h2 class="major m-auto">Name: {{ task.name }}</h2>
+
+            <h2>Description:</h2>
+            <p>
+              {{ task.description }}
+            </p>
+            <comment>
+              {% if task.is_completed %}
+                <h5>Completed</h5>
+              {% else %}
+                <h5 class="text-danger">No Completed</h5>
+              {% endif %}
+            </comment>
+          </div>
+        </a>
+
       </li>
     {% endfor %}
   </ul>
