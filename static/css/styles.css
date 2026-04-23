@@ -46,3 +46,12 @@ body:not(.is-preload) .fade-in {
     text-shadow: 0 0 5px red;
 
 }
+
+.custom-date {
+    background: transparent;
+    color: white;
+}
+
+.custom-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}

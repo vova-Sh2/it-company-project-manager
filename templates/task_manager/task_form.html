@@ -9,10 +9,12 @@
       <div class="col-md-6 mb-3">
         <label for="id_name" class="form-label">Name</label>
         {{ form.name }}
+        {{ form.name.errors }}
       </div>
       <div class="col-md-6 mb-3">
         <label for="id_deadline" class="form-label">Deadline</label>
         {{ form.deadline }}
+        {{ form.deadline.errors }}
       </div>
     </div>
 
@@ -20,13 +22,16 @@
       <div class="col-md-6 mb-3">
         <label for="id_priority" class="form-label">Priority</label>
         {{ form.priority }}
+        {{ form.priority.errors }}
       </div>
       <div class="col-md-6 mb-3">
         <label for="id_task_type" class="form-label">Task type</label>
         <div class="d-flex align-items-center">
           {{ form.task_type }}
+
           <a href="{% url 'task_manager:task-type-create' %}?next={{ request.path }}" class="button ms-2">➕</a>
         </div>
+        {{ form.task_type.errors }}
       </div>
 
 
@@ -35,6 +40,7 @@
     <div class="mb-3">
       <label for="id_description" class="form-label">Description</label>
       {{ form.description }}
+      {{ form.description.errors }}
     </div>
 
     <div class="mb-3 border p-3">
@@ -46,6 +52,7 @@
               {{ checkbox.tag }}
               <label class="form-check-label" for="{{ checkbox.id_for_label }}">
                 {{ checkbox.choice_label }}
+                {{ checkbox.choice_label.errors }}
               </label>
             </div>
           </div>

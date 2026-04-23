@@ -1,8 +1,10 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
 
 from task_manager.models import Task, Worker, TaskType
+import datetime
 
 
 class TaskForm(forms.ModelForm):
@@ -13,6 +15,17 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ["name", "description", "deadline", "priority", "task_type", "assignees"]
+        widgets = {"deadline":
+                   forms.DateInput(attrs={"type": "date",
+                                          "class": "custom-date form-control",
+                                          "style": "",})}
+
+    def clean_deadline(self):
+        deadline = self.cleaned_data["deadline"]
+        if deadline < datetime.date.today():
+            raise ValidationError("Deadline date cannot be in the future")
+        return deadline
+
 
 
 class TaskTypeCreateForm(forms.ModelForm):
