@@ -19,15 +19,13 @@
       {% endblock %}
     </div>
 			<div id="wrapper">
-
-            <div class="fade-in text-center">
-              {% block content %}
-              {% endblock %}
-              {% block pagination %}
-                  {% include "includes/pagination.html" %}
-              {% endblock %}
-
-            </div>
+        {% block content %}
+        {% endblock %}
+        {% block pagination %}
+            {% include "includes/pagination.html" %}
+        {% endblock %}
+        <div class=>
+        </div>
 			</div>
 
 		<!-- BG -->

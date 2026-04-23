@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1 class="major">Create task</h1>
+  <form method="post" action="">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="id_name" class="form-label">Name</label>
+        {{ form.name }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="id_deadline" class="form-label">Deadline</label>
+        {{ form.deadline }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="id_priority" class="form-label">Priority</label>
+        {{ form.priority }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="id_task_type" class="form-label">Task type</label>
+        {{ form.task_type }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="id_description" class="form-label">Description</label>
+      {{ form.description }}
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Assignees</label>
+      <div class="row">
+        {% for checkbox in form.assignees %}
+          <div class="col-md-6">
+            <div class="form-check">
+              {{ checkbox.tag }}
+              <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                {{ checkbox.choice_label }}
+              </label>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}

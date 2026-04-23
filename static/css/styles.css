@@ -1,12 +1,8 @@
-.border {
-    border: 2px solid #ffffff !important;
-    border-radius: 4px;
+#wrapper {
+    gap: 40px;
+    min-height: 50vh;
 }
 
-#wrapper {
-    min-height: 0;
-    margin: auto;
-}
 #header {
 
     position: fixed;
@@ -15,6 +11,18 @@
     width: 100%;
     z-index: 1000; /* щоб перекривав інші елементи */
 }
+
+
+body:not(.is-preload) .fade-in {
+    opacity: 1;
+}
+
+
+.border {
+    border: 2px solid #ffffff !important;
+    border-radius: 4px;
+}
+
 
 .navigate {
     height: 100px;
@@ -27,8 +35,14 @@
 }
 
 
-body:not(.is-preload) .fade-in {
-    opacity: 1;
+.complete {
+    color: #3fc113 !important;
+    text-shadow: 0 0 5px #3fc113;
 }
 
 
+.no-completed {
+    color: red !important;
+    text-shadow: 0 0 5px red;
+
+}

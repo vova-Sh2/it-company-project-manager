@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 
+from task_manager.forms import TaskForm
 from task_manager.models import Task, Worker
 
 
@@ -27,6 +29,16 @@ def account_info(request):
     }
     return render(request, "account_info/account_info.html" , context=context)
 
+@login_required
+def task_complete(request, pk):
+    if request.method == "POST":
+        obj = Task.objects.get(id=pk)
+        obj.is_completed = True
+        obj.save()
+    return redirect(request.GET.get("next"))
+
+
+
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
@@ -34,6 +46,16 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Task.objects.filter(assignees=self.request.user)
+
+
+class TaskDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Task
+
+
+class TaskCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy("task_manager:task-list")
 
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):

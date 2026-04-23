@@ -1,21 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="">
+												<input type="checkbox" id="demo-dd">
+												<label for="demo-dd">Email me a copy</label>
+											</div>
   {% if  user.is_authenticated %}
     <h2 class="major">Account: <span>{{ user.username }}</span></h2>
   {% else %}
   {% endif  %}
-  <div class="">
-    <div class="field half">
-      <h3 id="poss" class="border rounded p-2 d-inline-block">Position: {{ user.position }}</h3>
+    <div class="border justify-content-md-center pt-3">
+      <div class="field half">
+        <h3 id="poss" class="">Position: {{ user.position }}</h3>
+      </div>
+      <div class="field half">
+        <h3 id="poss" class="">Completed tasks: {{ completed_tasks }}</h3>
+      </div>
     </div>
-    <div class="field half">
-      <h3 id="poss" class="border rounded p-2 d-inline-block">Completed tasks: {{ completed_tasks }}</h3>
-    </div>
-  </div>
 
   {% if user.is_authenticated %}
-    <div class="ms-auto">
+    <div class="">
       <form method="post" action="{% url 'logout' %}" class="">
         {% csrf_token %}
         <button type="submit" class="">Logout</button>

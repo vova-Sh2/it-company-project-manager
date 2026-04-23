@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="major w-50 text-center">
+    <span>{{ task.name }}</span>
+
+  </h2>
+  <div class="border text-left w-50 p-2">
+    <div class="">
+      <h3 class="major">
+        status:{% if task.is_completed %}
+        <span class="complete">Complete</span>
+      {% else %}
+        <span class="no-completed">No Completed</span>
+      {% endif %}
+      </h3>
+      <h3 class="major">Deadline: {{ task.deadline }}</h3>
+      <h3 class="major">Priority:
+        {% if task.priority == "low" %}
+          <span class="text-success">{{ task.priority }}</span>
+        {% elif task.priority == "medium" %}
+          <span style="color: yellow">{{ task.priority }}</span>
+        {% elif task.priority == "high" %}
+          <span style="color: orangered">{{ task.priority }}</span>
+        {% else %}
+          <span style="color: red">{{ task.priority }}</span>
+        {% endif %}
+        </h3>
+    </div>
+    <h2 class="border-bottom text-center">Detail</h2>
+    <p class="">{% lorem 3 p %}</p>
+  </div>
+  {% if not task.is_completed %}
+    <form method="post" action="{% url 'task_manager:task_complete' pk=task.id %}?next={{ request.path }}">
+      {% csrf_token %}
+      <button type="submit">Complete</button>
+
+    </form>
+  {% endif %}
+{% endblock %}
