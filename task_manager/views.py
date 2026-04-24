@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -16,39 +15,31 @@ from task_manager.forms import (
 from task_manager.models import Task, TaskType, Position
 
 
-@login_required
-def index(request):
-    """View function for the home page of the site."""
-    num_uncompleted_tasks = Task.objects.all().filter(
-        is_completed=False
-    ).count()
-    num_completed_tasks = Task.objects.all().filter(
-        is_completed=True
-    ).count()
-    context = {
-        "num_uncompleted_tasks": num_uncompleted_tasks,
-        "num_completed_tasks": num_completed_tasks,
-    }
-
-    return render(request, "task_manager/index.html", context=context)
+USER = get_user_model()
 
 
-@login_required
-def account_info(request):
-    completed_tasks = Task.objects.all().filter(is_completed=True).count()
-    context = {
-        "completed_tasks": completed_tasks
-    }
-    return render(request, "account_info/account_info.html", context=context)
+class IndexView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "task_manager/index.html"
 
 
-@login_required
-def task_complete(request, pk):
-    if request.method == "POST":
-        obj = Task.objects.get(id=pk)
-        obj.is_completed = True
-        obj.save()
-    return redirect(request.GET.get("next"))
+class AccountInfoView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "account_info/account_info.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["completed_tasks"] = Task.objects.filter(
+            is_completed=True
+        ).count()
+
+        return context
+
+
+class TaskCompleteView(LoginRequiredMixin, generic.View):
+
+    def post(self, request, pk):
+        Task.objects.filter(id=pk).update(is_completed=True)
+
+        return redirect(request.GET.get("next","/"))
 
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
@@ -124,7 +115,7 @@ class PositionCreateView(
 
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
-    model = get_user_model()
+    model = USER
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
@@ -136,7 +127,7 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self):
-        queryset = get_user_model().objects.all()
+        queryset = USER.objects.all()
         form = WorkerSearchForm(self.request.GET)
         if form.is_valid():
             return queryset.filter(
@@ -146,12 +137,12 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
 
 
 class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
-    model = get_user_model()
+    model = USER
     form_class = WorkerForm
 
 
 class WorkerPositionUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = get_user_model()
+    model = USER
     form_class = WorkerPositionUpdateForm
     template_name = "task_manager/worker_form.html"
     success_url = reverse_lazy("task_manager:worker-list")
