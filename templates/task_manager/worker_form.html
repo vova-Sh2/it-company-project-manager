@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <h1 class="major">Create worker</h1>
+  <h1 class="major">{{ object|yesno:"Update,Create" }} worker</h1>
   <form method="post" action="" novalidate>
     {% csrf_token %}
     {{ form.non_field_errors }}
