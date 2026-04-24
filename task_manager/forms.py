@@ -23,7 +23,8 @@ class TaskForm(forms.ModelForm):
     def clean_deadline(self):
         deadline = self.cleaned_data["deadline"]
         if deadline < datetime.date.today():
-            raise ValidationError("Deadline date cannot be in the future")
+            raise ValidationError("Deadline date cannot be in the past"
+                                  "")
         return deadline
 
 
@@ -34,7 +35,22 @@ class TaskTypeCreateForm(forms.ModelForm):
         fields = "__all__"
 
 
+class WorkerSearchForm(forms.Form):
+    username = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by username"}),)
+
+
 class WorkerForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = Worker
         fields = UserCreationForm.Meta.fields + ("position",)
+
+
+class WorkerPositionUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Worker
+        fields = ["position"]
+

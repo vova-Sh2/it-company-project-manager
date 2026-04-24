@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <h1 class="major">Task List({{ user.position }}) <a class="button" href="{% url 'task_manager:task-create' %}">➕Create a task</a></h1>
+  <h1 class="major">Task List <a class="button" href="{% url 'task_manager:task-create' %}">➕Create a task</a></h1>
 
   <ul class="list-unstyled w-50">
     {% for task in task_list %}
