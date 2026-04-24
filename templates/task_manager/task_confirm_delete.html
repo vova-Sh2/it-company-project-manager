@@ -7,7 +7,7 @@
 
     <div class="d-flex">
       <input class="bg-danger me-4" type="submit" value="Delete">
-      <a class="button" href="{% url 'task_manager:task-list' %}">Cancel</a>
+      <a class="button" href="{% url 'task_manager:task-detail' pk=task.id %}">Cancel</a>
     </div>
   </form>
 {% endblock %}

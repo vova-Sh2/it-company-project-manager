@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
-from task_manager.models import Task, Worker, TaskType
+from task_manager.models import Task, TaskType
 import datetime
 
 
@@ -43,14 +43,22 @@ class WorkerSearchForm(forms.Form):
         widget=forms.TextInput(attrs={"placeholder": "Search by username"}),)
 
 
+class TaskSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),)
+
+
 class WorkerForm(UserCreationForm):
     class Meta(UserCreationForm):
-        model = Worker
+        model = get_user_model()
         fields = UserCreationForm.Meta.fields + ("position",)
 
 
 class WorkerPositionUpdateForm(forms.ModelForm):
     class Meta:
-        model = Worker
+        model = get_user_model()
         fields = ["position"]
 

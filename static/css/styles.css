@@ -55,3 +55,12 @@ body:not(.is-preload) .fade-in {
 .custom-date::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
+
+.icon-custom {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url("static/images/icon_header.png") no-repeat center;
+  background-size: contain;
+}
+

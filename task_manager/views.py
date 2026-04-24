@@ -6,8 +6,9 @@ from django.template.base import kwarg_re
 from django.urls import reverse_lazy
 from django.views import generic
 
-from task_manager.forms import TaskForm, WorkerForm, TaskTypeCreateForm, WorkerPositionUpdateForm, WorkerSearchForm
-from task_manager.models import Task, Worker, TaskType, Position
+from task_manager.forms import TaskForm, WorkerForm, TaskTypeCreateForm, WorkerPositionUpdateForm, WorkerSearchForm, \
+    TaskSearchForm
+from task_manager.models import Task, TaskType, Position
 
 
 @login_required
@@ -46,8 +47,21 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     paginate_by = 5
 
+
+    def get_context_data(self, **kwargs):
+        context = super(TaskListView, self).get_context_data(**kwargs)
+        username = self.request.GET.get("name", "")
+        context["search_name"] = TaskSearchForm(initial={"name": username})
+        return context
+
     def get_queryset(self):
-        return Task.objects.filter(assignees=self.request.user)
+        queryset = Task.objects.filter(assignees=self.request.user)
+        form = TaskSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
+        return queryset
+
+
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
@@ -92,6 +106,7 @@ class TaskTypeListView(LoginRequiredMixin, generic.ListView):
     template_name = "task_manager/tasktyp_list.html"
 
 
+
 class PositionCreateView(LoginRequiredMixin, generic.CreateView):
     model = Position
     fields = "__all__"
@@ -99,7 +114,7 @@ class PositionCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
-    model = Worker
+    model = get_user_model()
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
@@ -118,12 +133,12 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
 
 
 class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Worker
+    model = get_user_model()
     form_class = WorkerForm
 
 
 class WorkerPositionUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Worker
+    model = get_user_model()
     form_class = WorkerPositionUpdateForm
     template_name = "task_manager/worker_form.html"
     success_url = reverse_lazy("task_manager:worker-list")

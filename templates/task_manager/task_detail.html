@@ -31,7 +31,7 @@
         </h3>
     </div>
     <h2 class="border-bottom text-center">Detail</h2>
-    <p class="">{% lorem 3 p %}</p>
+    <p>{{ task.description }}</p>
   </div>
   {% if not task.is_completed %}
     <form method="post" action="{% url 'task_manager:task_complete' pk=task.id %}?next={{ request.path }}">

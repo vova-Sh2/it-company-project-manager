@@ -3,7 +3,11 @@
 {% block content %}
 
   <h1 class="major">Task List <a class="button" href="{% url 'task_manager:task-create' %}">➕Create a task</a></h1>
-
+  <form method="get" action="" class="d-flex">
+    {% csrf_token %}
+    {{ search_name }}
+    <input type="submit" value="🔍">
+  </form>
   <ul class="list-unstyled w-50">
     {% for task in task_list %}
       <li class="border m-4">

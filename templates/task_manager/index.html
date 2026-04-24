@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load static %}
 
   <div id="header">
-    <div class="logo">
-      <span class="icon fa-gem fa-spin"></span>
+    <div class="logo d-flex">
+      <img class="icon m-auto" src="{% static 'images/icon_header.png' %}">
     </div>
     <div class="content">
       <div class="inner">
