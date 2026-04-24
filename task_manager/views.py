@@ -2,7 +2,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.template.base import kwarg_re
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -76,6 +75,8 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
 
 class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy("task_manager:task-list")
 
 class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Task

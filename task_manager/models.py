@@ -26,6 +26,9 @@ class Worker(AbstractUser):
     def get_absolute_url(self):
         return reverse("task_manager:worker-list")
 
+    class Meta:
+        ordering = ["username"]
+
 class Task(models.Model):
     class Priority(models.TextChoices):
         LOW = "low", "Low"
@@ -43,3 +46,6 @@ class Task(models.Model):
         default=Priority.LOW)
     task_type = models.ForeignKey(TaskType, on_delete=models.PROTECT)
     assignees = models.ManyToManyField(Worker, related_name="assigned_tasks")
+
+    class Meta:
+        ordering = ["deadline"]
