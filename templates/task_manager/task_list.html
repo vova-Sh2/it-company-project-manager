@@ -8,7 +8,7 @@
     {{ search_name }}
     <input type="submit" value="🔍">
   </form>
-  <ul class="list-unstyled w-50">
+  <ul class="list-unstyled">
     {% for task in task_list %}
       <li class="border m-4">
         <a href="{% url 'task_manager:task-detail' pk=task.id %}">
