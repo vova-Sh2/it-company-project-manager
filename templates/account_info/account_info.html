@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if  user.is_authenticated %}
+    <h2 class="major">Account: <span>{{ user.username }}</span></h2>
+  {% else %}
+  {% endif  %}
+    <div class="border justify-content-md-center pt-3">
+      <div class="field half">
+        <h3 id="poss" class="">Position: {{ user.position }}</h3>
+      </div>
+      <div class="field half">
+        <h3 id="poss" class="">Completed tasks: {{ completed_tasks }}</h3>
+      </div>
+    </div>
+
+  {% if user.is_authenticated %}
+    <div class="">
+      <form method="post" action="{% url 'logout' %}" class="">
+        {% csrf_token %}
+        <button type="submit" class="">Logout</button>
+      </form>
+    </div>
+  {% else %}
+      <a class="button ms-auto primary" href="{% url 'login' %}?next={{ request.path }}">Login</a>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+  <div id="header">
+    <div class="logo d-flex">
+      <img class="icon m-auto" src="{% static 'images/icon_header.png' %}">
+    </div>
+    <div class="content">
+      <div class="inner">
+        <h1>IT Task Manager</h1>
+        <p>A platform for collaborative work among developers.<br>
+          Here, developers can create tasks, assign them to other team members, and track progress in one place.
+        </p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg ">
+
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body m-2">
+        <ul class="navbar-nav d-flex list-unstyled w-100">
+          <li class="flex-fill mb-2"><a class="button w-100" href="{% url 'task_manager:task-type' %}">Task type</a></li>
+          <li class="flex-fill mb-2"><a class="button w-100" href="{% url 'task_manager:task-list' %}">Task</a></li>
+          <li class="flex-fill mb-2"><a class="button w-100" href="{% url 'task_manager:index' %}">Home</a></li>
+          <li class="flex-fill mb-2"><a class="button w-100" href="{% url 'task_manager:worker-list' %}">Workers</a></li>
+          <li class="flex-fill mb-2"><a class="button w-100" href="{% url 'task_manager:account-info' %}">Account</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

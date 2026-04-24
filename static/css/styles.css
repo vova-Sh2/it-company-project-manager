@@ -1,0 +1,66 @@
+#wrapper {
+    gap: 40px;
+    min-height: 50vh;
+}
+
+#header {
+
+    position: fixed;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* щоб перекривав інші елементи */
+}
+
+
+body:not(.is-preload) .fade-in {
+    opacity: 1;
+}
+
+
+.border {
+    border: 2px solid #ffffff !important;
+    border-radius: 4px;
+}
+
+
+.navigate {
+    height: 100px;
+}
+
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+
+.complete {
+    color: #3fc113 !important;
+    text-shadow: 0 0 5px #3fc113;
+}
+
+
+.no-completed {
+    color: red !important;
+    text-shadow: 0 0 5px red;
+
+}
+
+.custom-date {
+    background: transparent;
+    color: white;
+}
+
+.custom-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.icon-custom {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url("static/images/icon_header.png") no-repeat center;
+  background-size: contain;
+}
+

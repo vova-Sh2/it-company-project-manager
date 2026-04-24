@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1 class="major">Delete Task Type?</h1>
+  <form method="post" action="">
+  {% csrf_token %}
+    <div class="d-flex">
+      <input class="bg-danger me-4" type="submit" value="Delete">
+      <a class="button" href="{% url 'task_manager:task-type' %}">Cancel</a>
+    </div>
+  </form>
+{% endblock %}

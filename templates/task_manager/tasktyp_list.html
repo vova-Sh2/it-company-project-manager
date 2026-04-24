@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1 class="major">Task Type<a class="button" href="{% url 'task_manager:task-type-create' %}">➕</a></h1>
+  <table>
+    <tr>
+      <th>Task type</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    {% for task_type in tasktype_list %}
+      <tr>
+        <th>{{ task_type.name }}</th>
+        <th><a class="button" href="{% url 'task_manager:task-type-update' pk=task_type.id %}">Update</a></th>
+        <th><a class="button bg-danger" href="{% url 'task_manager:task-type-delete' pk=task_type.id %}">Delete</a></th>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}

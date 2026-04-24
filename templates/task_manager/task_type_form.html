@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="major">{{ object|yesno:"Update,Create" }} Task type</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="d-flex">
+      <input class="primary me-4" type="submit" value="Submit">
+      <button onclick="history.back()">Cancel</button>
+    </div>
+  </form>
+{% endblock %}

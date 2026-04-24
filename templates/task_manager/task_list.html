@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1 class="major">Task List <a class="button" href="{% url 'task_manager:task-create' %}">➕Create a task</a></h1>
+  <form method="get" action="" class="d-flex">
+    {% csrf_token %}
+    {{ search_name }}
+    <input type="submit" value="🔍">
+  </form>
+  <ul class="list-unstyled">
+    {% for task in task_list %}
+      <li class="border m-4">
+        <a href="{% url 'task_manager:task-detail' pk=task.id %}">
+          <div class="text-center">
+            <h2 class="major m-auto">Name: {{ task.name }}</h2>
+
+            <h3>Priority:
+              {% if task.priority == "low" %}
+                <span style="color: green">{{ task.priority }}</span>
+              {% elif task.priority == "medium" %}
+                <span style="color: yellow">{{ task.priority }}</span>
+              {% elif task.priority == "high" %}
+                <span style="color: orangered">{{ task.priority }}</span>
+              {% else %}
+                <span style="color: red">{{ task.priority }}</span>
+              {% endif %}
+            </h3>
+            <h3>Task type: {{ task.task_type }}</h3>
+            <comment>
+              {% if task.is_completed %}
+                <h5 class="badge complete">Completed</h5>
+              {% else %}
+                <h5 class="badge no-completed">No Completed</h5>
+              {% endif %}
+            </comment>
+
+          </div>
+        </a>
+
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
