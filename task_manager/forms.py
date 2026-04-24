@@ -12,13 +12,22 @@ class TaskForm(forms.ModelForm):
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple(),
     )
+
     class Meta:
         model = Task
-        fields = ["name", "description", "deadline", "priority", "task_type", "assignees"]
+        fields = [
+            "name",
+            "description",
+            "deadline",
+            "priority",
+            "task_type",
+            "assignees"]
         widgets = {"deadline":
                    forms.DateInput(attrs={"type": "date",
                                           "class": "custom-date form-control",
-                                          "style": "",})}
+                                          }
+                                   )
+                   }
 
     def clean_deadline(self):
         deadline = self.cleaned_data["deadline"]
@@ -26,7 +35,6 @@ class TaskForm(forms.ModelForm):
             raise ValidationError("Deadline date cannot be in the past"
                                   "")
         return deadline
-
 
 
 class TaskTypeCreateForm(forms.ModelForm):
@@ -61,4 +69,3 @@ class WorkerPositionUpdateForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ["position"]
-

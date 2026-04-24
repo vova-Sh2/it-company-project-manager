@@ -29,6 +29,7 @@ class Worker(AbstractUser):
     class Meta:
         ordering = ["username"]
 
+
 class Task(models.Model):
     class Priority(models.TextChoices):
         LOW = "low", "Low"
