@@ -1,0 +1,459 @@
+[
+{
+    "model": "task_manager.tasktype",
+    "pk": 1,
+    "fields": {
+        "name": "Bug"
+    }
+},
+{
+    "model": "task_manager.tasktype",
+    "pk": 2,
+    "fields": {
+        "name": "New feature"
+    }
+},
+{
+    "model": "task_manager.tasktype",
+    "pk": 3,
+    "fields": {
+        "name": "Breaking chage"
+    }
+},
+{
+    "model": "task_manager.tasktype",
+    "pk": 4,
+    "fields": {
+        "name": "Refactoring"
+    }
+},
+{
+    "model": "task_manager.position",
+    "pk": 2,
+    "fields": {
+        "name": "Developer"
+    }
+},
+{
+    "model": "task_manager.position",
+    "pk": 3,
+    "fields": {
+        "name": "Project Manadger"
+    }
+},
+{
+    "model": "task_manager.position",
+    "pk": 4,
+    "fields": {
+        "name": "QA"
+    }
+},
+{
+    "model": "task_manager.position",
+    "pk": 5,
+    "fields": {
+        "name": "Designer"
+    }
+},
+{
+    "model": "task_manager.position",
+    "pk": 6,
+    "fields": {
+        "name": "DevOPps"
+    }
+},
+{
+    "model": "task_manager.position",
+    "pk": 7,
+    "fields": {
+        "name": "fgfd"
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$nmzXJFHIJSykevDcnFSgcS$+xVgBNMfKna/IGrjwoL8kf/mYvoSAreUxI1xnRTRiT4=",
+        "last_login": "2026-04-24T19:29:32.247Z",
+        "is_superuser": true,
+        "username": "Shrek",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-04-15T11:10:00.234Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$Oby91ALBHSTTFPYdG0SseE$kbhMq7z6REr0Zjhfj8zlW25Lql4QgztVWgy+C6cJIv4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "forti",
+        "first_name": "Bob",
+        "last_name": "Gerge",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T12:31:08.116Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$DltXjDrqx5EDDKDytHw9PP$bJozqQim+3zwJXLMLEDU/7W4xbFzXIM9VISjXT1SPk4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "HORT",
+        "first_name": "Lora",
+        "last_name": "Naitly",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T12:31:36.225Z",
+        "position": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$2G3CIyD2A6gAskkRuXewZp$3EZfeNhXSx9j54hdX7Jy/NpVwnH6IrmJIMI+tgr8Vjs=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "fira",
+        "first_name": "Alisa",
+        "last_name": "Fidjer",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T12:32:12.249Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$iR40U6LkTVFUxHZoGkelEq$qT0EKdhjQnHhdNllC7bSrXxrkGoXD8J9PDWfN7cZ2HY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "EVIL",
+        "first_name": "Licus",
+        "last_name": "Jard",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T12:33:01.649Z",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$1PELRuVtuFM8hzHWIkTbgx$iFmAdXMr5eSBIy8RBBsfMals182u4//rUu84tJKNkTI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "frirt",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T13:13:14.982Z",
+        "position": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$QztDT1tueG9YjqEbC7xaTu$N2Zasgxsn9bqffA94pPabqH4yRaM747dZ6WYr7qJ3tk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "don",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T13:13:32.731Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$chOZL07ZfDr54oxKxqpBOz$5P5lV9JHyh/r0hMgOrOHFzzRgqsj+fMunK7clrbI/UE=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "goga",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-15T13:13:49.249Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 9,
+    "fields": {
+        "password": "!JnD88DosTzOP9qneex0PaZyDR9lnG3AlWOOJvKlA",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Ssaddd",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-23T14:24:19.353Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 10,
+    "fields": {
+        "password": "!G8yhFWAKPsOVZg5KGEEu7kjlVPeBOz3VSnRsHM4M",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "vbfggg",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-23T14:24:35.794Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 11,
+    "fields": {
+        "password": "!pYWmdTNSZJGh8QHFoCGLlh1tsFiAUDeqCSnRTTji",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "gfgg",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-23T14:24:42.730Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$DZMM7bgIqiTrVPrGHxi7dk$bbxzluac1qSOBrx26SzeZmguoBXbjvh8j2XkLTwXysQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "aaaaaaa",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-23T14:58:58.901Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 13,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$P6MNCdrdmGkmLZ7GhExwsP$0aBElRSZuDD6P6b/TvuiQJl5vQzAEdG1dGV0hb+pKLw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "aaaaaaaaaaaa",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-23T15:05:20.624Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.worker",
+    "pk": 14,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$7r0WmMQdUPckKzQ1LQ39PV$C/tKhgqrxU1xEcksBXoe5Ry8g2eD31YSIQrHC5ZGfN4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jjjjjjj",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-04-23T15:10:15.940Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 1,
+    "fields": {
+        "name": "FIx bug vacancies",
+        "description": "The display is incorrect; please fix this bug as soon as possible",
+        "deadline": "2026-04-17",
+        "is_completed": false,
+        "priority": "medium",
+        "task_type": 1,
+        "assignees": [
+            2
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 2,
+    "fields": {
+        "name": "TEst 1",
+        "description": "fodsfsakdfpajfdjckjnhdadcfojadsjknhfcHPIOIJSKx;lmasdjkpoKD",
+        "deadline": "2026-04-29",
+        "is_completed": false,
+        "priority": "urgent",
+        "task_type": 2,
+        "assignees": [
+            4,
+            2
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 7,
+    "fields": {
+        "name": "ffdsfsd",
+        "description": "fsdf",
+        "deadline": "2026-04-24",
+        "is_completed": false,
+        "priority": "low",
+        "task_type": 4,
+        "assignees": [
+            9
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 8,
+    "fields": {
+        "name": "dsad",
+        "description": "dsad",
+        "deadline": "2026-04-25",
+        "is_completed": false,
+        "priority": "low",
+        "task_type": 3,
+        "assignees": [
+            11
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 13,
+    "fields": {
+        "name": "Fix authentication bug on login page",
+        "description": "Users cannot log in when using correct credentials. Investigate backend authentication logic and fix session handling issue.",
+        "deadline": "2026-04-30",
+        "is_completed": true,
+        "priority": "low",
+        "task_type": 1,
+        "assignees": [
+            1
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 14,
+    "fields": {
+        "name": "Implement task search functionality",
+        "description": "Add search feature to filter tasks by title, type and assigned worker. Improve UX for large task lists.",
+        "deadline": "2026-04-25",
+        "is_completed": true,
+        "priority": "medium",
+        "task_type": 2,
+        "assignees": [
+            1
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 16,
+    "fields": {
+        "name": "ъюфшЄш ърЁЄшэъє",
+        "description": "яЁюёЄю эртўшЄшё  яЁрЎ■трЄш ч ърЁЄшэърьш",
+        "deadline": "2026-04-30",
+        "is_completed": true,
+        "priority": "low",
+        "task_type": 2,
+        "assignees": [
+            1
+        ]
+    }
+},
+{
+    "model": "task_manager.task",
+    "pk": 17,
+    "fields": {
+        "name": "f",
+        "description": "gg",
+        "deadline": "2026-05-02",
+        "is_completed": false,
+        "priority": "medium",
+        "task_type": 2,
+        "assignees": [
+            5
+        ]
+    }
+}
+]
