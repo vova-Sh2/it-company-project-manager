@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete driver?</h1>
+  <h1>Delete Worker?</h1>
   <form action="" method="post">
     {% csrf_token %}
 
-    <input type="submit" value="Yes" class="btn btn-danger">
+    <div class="d-flex">
+      <input class="bg-danger me-4" type="submit" value="Delete">
+      <a class="button" href="{% url 'task_manager:worker-delete' pk=worker.id %}">Cancel</a>
+    </div>
   </form>
 {% endblock %}
