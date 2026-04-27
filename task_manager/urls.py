@@ -17,6 +17,7 @@ from task_manager.views import (
     TaskUpdateView,
     IndexView,
     TaskCompleteView,
+    WorkerDeleteView,
 )
 
 urlpatterns = [
@@ -86,7 +87,7 @@ urlpatterns = [
     ),
     path(
         "workers/<int:pk>/delete",
-        WorkerCreateView.as_view(),
+        WorkerDeleteView.as_view(),
         name="worker-delete"
     ),
     path(

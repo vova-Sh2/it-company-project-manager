@@ -141,6 +141,13 @@ class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = WorkerForm
 
 
+class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = USER
+    template_name = "task_manager/worker_confirm_delete.html"
+    success_url = reverse_lazy("task_manager:worker-list")
+
+
+
 class WorkerPositionUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = USER
     form_class = WorkerPositionUpdateForm
